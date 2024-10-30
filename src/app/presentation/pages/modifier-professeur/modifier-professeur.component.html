@@ -1,0 +1,137 @@
+<!-- <section class="grouper">
+    <div class="form-container">
+        <h1>Modifier Professeur</h1>
+        <p> <a routerLink="/professeur">Retour <i class="	fas fa-arrow-circle-right"></i></a></p>
+        <form>
+            <div class="form-group">
+                <label for="nom"></label>
+                <input type="text" id="nom" placeholder="nom" name="nom">
+            </div>
+            <div class="form-group">
+                <label for="prenom"></label>
+                <input type="text" id="prenom" placeholder="prenom" name="prenom">
+            </div>
+            <div class="form-group gender-group">
+                <label><input type="radio" name="sexe" value="homme"> Homme: </label>
+                <label><input type="radio" name="sexe" value="femme"> Femme: </label>
+            </div>
+          
+            <div class="form-group">
+                <label for="date_naissance"> </label>
+                <input type="date" id="date_naissance" placeholder="date de naissance" name="date_naissance">
+            </div>
+            <div class="form-group">
+                <label for="classe"></label>
+                <select id="classe" name="matière">
+                    <option value="">Sélectionner une matière</option>
+                    <option value="">Math</option>
+                    <option value="">Physique</option>
+                    <option value="">EPS</option>
+                    <option value="">Anglais</option>
+                    <option value="">SVT</option>
+                    <option value="">Philosophie</option>
+                    <option value="">Francais</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="telephone"></label>
+                <input type="text" id="telephone" placeholder="telephone" name="telephone">
+            </div>
+            <div class="form-group">
+                <label for="ville"></label>
+                <input type="text" id="ville"  placeholder="ville" name="ville">
+            </div>
+            <div class="form-buttons">
+                <button type="button" class="cancel-button">Annuler</button>
+                <button type="submit" class="submit-button">Enregistrer</button>
+            </div>
+        </form>
+    </div>
+</section> -->
+
+<div class="container">
+    <h1>Modifier Professeur</h1>
+    <p> <a routerLink ="/professeur">Retour <i class="	fas fa-arrow-circle-right"></i></a></p>
+
+    <form id="event-form" class="event-form" [formGroup]="formModifierProfesseur">
+        <div class="form-group">
+            <label for="nom"> </label>
+            <input type="text" id="nom" placeholder="nom" name="nom" [class.is-invalid]="isInvalidInput(formModifierProfesseur.controls['nom'])" formControlName="nom">
+            <span class="text-danger" *ngIf="isInvalidInput(formModifierProfesseur.controls['nom'])">
+                <ng-container *ngIf="formModifierProfesseur.controls['nom'].hasError('required')">
+                  ce champ est requis
+                </ng-container>
+            </span>
+        </div>
+        <div class="form-group">
+            <label for="prenom"> </label>
+            <input type="text" id="prenom" placeholder="prenom" name="prenom" [class.is-invalid]="isInvalidInput(formModifierProfesseur.controls['prenom'])"  formControlName="prenom">
+            <span class="text-danger" *ngIf="isInvalidInput(formModifierProfesseur.controls['prenom'])">
+                <ng-container *ngIf="formModifierProfesseur.controls['prenom'].hasError('required')">
+                  ce champ est requis
+                </ng-container>
+            </span>
+        </div>
+        <div class="form-group gender-group">
+            <label><input type="radio" name="sexe" value="homme" [class.is-invalid]="isInvalidInput(formModifierProfesseur.controls['sexe'])"  formControlName="sexe"> Homme: </label>
+            <label><input type="radio" name="sexe" value="femme" [class.is-invalid]="isInvalidInput(formModifierProfesseur.controls['sexe'])"  formControlName="sexe">  Femme: </label>
+            <span class="text-danger" *ngIf="isInvalidInput(formModifierProfesseur.controls['sexe'])">
+                <ng-container *ngIf="formModifierProfesseur.controls['sexe'].hasError('required')">
+                  ce champ est requis
+                </ng-container>
+            </span>
+        </div>
+        <div class="form-group">
+            <label for="matricule"> </label>
+            <input type="text" id="matricule" placeholder="matricule" name="matricule" [class.is-invalid]="isInvalidInput(formModifierProfesseur.controls['matricule'])"  formControlName="matricule">
+            <span class="text-danger" *ngIf="isInvalidInput(formModifierProfesseur.controls['matricule'])">
+                <ng-container *ngIf="formModifierProfesseur.controls['matricule'].hasError('required')">
+                  ce champ est requis
+                </ng-container>
+            </span>
+        </div>
+        <div class="form-group">
+            <label for="date_naissance"> </label>
+            <input type="date" id="date_naissance"  name="date_naissance" [class.is-invalid]="isInvalidInput(formModifierProfesseur.controls['date_naissance'])"  formControlName="date_naissance">
+        </div>
+        
+       
+        <div class="form-group">
+            <label for="classe"></label>
+            <select id="classe" name="matière" placeholder="matière" name="matière" [class.is-invalid]="isInvalidInput(formModifierProfesseur.controls['matiere'])"  formControlName="matiere">
+                <option value="">Sélectionner une matière</option>
+                <option value="">Math</option>
+                <option value="">Physique</option>
+                <option value="">EPS</option>
+                <option value="">Anglais</option>
+                <option value="">SVT</option>
+                <option value="">Philosophie</option>
+                <option value="">Francais</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="telephone"> </label>
+            <input type="text" id="telephone" placeholder="telephone" name="telephone" [class.is-invalid]="isInvalidInput(formModifierProfesseur.controls['telephone'])"  formControlName="telephone">
+            <span class="text-danger" *ngIf="isInvalidInput(formModifierProfesseur.controls['telephone'])">
+                <ng-container *ngIf="formModifierProfesseur.controls['telephone'].hasError('required')">
+                  ce champ est requis
+                </ng-container>
+            </span>
+        </div>
+        <div class="form-group">
+            <label for="ville">Ville: </label>
+            <input type="text" id="ville"  placeholder="ville" name="ville" [class.is-invalid]="isInvalidInput(formModifierProfesseur.controls['ville'])"  formControlName="ville">
+            <span class="text-danger" *ngIf="isInvalidInput(formModifierProfesseur.controls['ville'])">
+                <ng-container *ngIf="formModifierProfesseur.controls['ville'].hasError('required')">
+                  ce champ est requis
+                </ng-container>
+            </span>
+        </div>
+        <div class="form-buttons">
+            <button type="button" class="cancel-button">Annuler</button>
+            <button type="submit" class="submit-button">Enregistrer</button>
+        </div>
+        
+
+    </form>
+</div>

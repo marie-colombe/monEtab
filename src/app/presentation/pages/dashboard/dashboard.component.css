@@ -1,0 +1,96 @@
+
+body{
+	background: linear-gradient(45deg, #73b0cf, #7bb2fe, #327398, #91eae4); 
+    background-size: 400% 400%; 
+    animation: gradientAnimation 8s ease infinite; 
+
+}
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+
+.tous .tablebord{
+	display: flex;
+	flex-wrap: wrap;
+	gap:2rem;
+	
+}
+
+.tous h2{
+	text-align: center;
+	font-size: 2rem;
+	color: #1F4668;
+	font-family:"Lucida Bright", "serif";
+	line-height: 10rem;
+}
+
+.tous P{
+	text-align: center;
+	font-size: 1rem;
+	color: #1F4668;
+	font-family:  "Times New Roman";
+	line-height: "3rem";
+}
+
+.tous .tablebord .tables{
+	margin: 20px;
+	padding: 1rem;
+	
+	box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+	border: .1rem solid rgba(0,0,0,.3);
+	border-radius: .1rem;
+	text-align: center;
+	flex: 1 1 30rem;
+	position: relative;
+}
+
+
+.tous .tablebord .tables .h3{
+	
+	color: #333;
+	font-size: 2rem;
+	padding-top: 1rem;
+}
+
+#total1{
+	width: 300px;
+    grid-area: total1;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #000;
+    
+}
+
+#total2{
+	width: 300px;
+    grid-area: total2;
+    background-color: #fff;
+    color: #000;
+}
+
+#total3{
+	width: 300px;
+    grid-area: total3;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #000;
+}
+
+#total4{
+	width: 300px;
+    grid-area: total4;
+    background-color: #fff;
+    color: #000;
+} 
+
+

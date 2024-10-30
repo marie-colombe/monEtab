@@ -1,0 +1,74 @@
+<!-- <section class="grouper">
+    
+    <div class="form-container">
+        <h1>Ajouter un utilisateur</h1>
+        <p> <a href="/utilisateur">Retour <i class="fas fa-arrow-circle-right"></i></a></p>
+        <form>
+            <div class="form-group">
+                <label for="pseudo"> </label>
+                <input type="text" id="nom" placeholder="pseudo" name="pseudo">
+            </div>
+            <div class="form-group">
+                <label for="mot de passe"> </label>
+                <input type="text" id="prenom" placeholder="mot de passe" name="mot de passe">
+            </div>
+           
+           
+            <div class="form-group">
+                <label for="confirmer"> </label>
+                <input type="text" id="telephone" placeholder="confirmer mot de passe" name="confirm">
+            </div>
+           
+            <div class="form-buttons">
+                <button type="button" class="cancel-button">Annuler</button>
+                <button type="submit" class="submit-button">Enregistrer</button>
+            </div>
+        </form>
+    </div>
+
+</section> -->
+
+<div class="container">
+    <h1>Ajouter un utilisateur</h1>
+    <p> <a href="/utilisateur">Retour <i class="fas fa-arrow-circle-right"></i></a></p>
+
+    <form id="event-form" class="event-form" [formGroup]="formAjouterUtilisateur">
+       
+        <div class="form-group">
+            <label for="pseudo"> </label>
+            <input type="text" id="nom" placeholder="pseudo" name="pseudo" [class.is-invalid]="isInvalidInput(formAjouterUtilisateur.controls['pseudo'])" formControlName="pseudo">
+            <span class="text-danger" *ngIf="isInvalidInput(formAjouterUtilisateur.controls['pseudo'])">
+                <ng-container *ngIf="formAjouterUtilisateur.controls['pseudo'].hasError('required')">
+                  ce champ est requis
+                </ng-container>
+            </span>
+        </div>
+        <div class="form-group">
+            <label for="mot de passe"> </label>
+            <input type="text" id="prenom" placeholder="mot de passe" name="mot de passe" [class.is-invalid]="isInvalidInput(formAjouterUtilisateur.controls['mot_de_passe'])" formControlName="mot_de_passe">
+            <span class="text-danger" *ngIf="isInvalidInput(formAjouterUtilisateur.controls['mot_de_passe'])">
+                <ng-container *ngIf="formAjouterUtilisateur.controls['mot_de_passe'].hasError('required')">
+                  ce champ est requis
+                </ng-container>
+            </span>
+        </div>
+       
+       
+        <div class="form-group">
+            <label for="confirmer"> </label>
+            <input type="text" id="telephone" placeholder="confirmer mot de passe" name="confirm" [class.is-invalid]="isInvalidInput(formAjouterUtilisateur.controls['confirm'])" formControlName="confirm">
+            <span class="text-danger" *ngIf="isInvalidInput(formAjouterUtilisateur.controls['confirm'])">
+                <ng-container *ngIf="formAjouterUtilisateur.controls['confirm'].hasError('required')">
+                  ce champ est requis
+                </ng-container>
+            </span>
+        </div>
+       
+        <div class="form-buttons">
+            <button type="button" class="cancel-button">Annuler</button>
+            <button type="submit" class="submit-button">Enregistrer</button>
+        </div>
+        
+
+    </form>
+</div>

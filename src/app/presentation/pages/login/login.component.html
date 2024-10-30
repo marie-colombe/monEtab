@@ -1,0 +1,39 @@
+<body>
+<div class="wrapper">
+	<form [formGroup]="formLoginComponent">
+		
+		 <img src="assets/a.png" alt="" class="logo"> 
+		<div class="input-box">
+		<input type="text" name="login" placeholder="Identifiant" name="nom" [class.is-invalid]="isInvalidInput(formLoginComponent.controls['login'])" formControlName="login">
+		<i class="bx bxs-user"></i>
+		<span class="text-danger" *ngIf="isInvalidInput(formLoginComponent.controls['login'])">
+			<ng-container *ngIf="formLoginComponent.controls['login'].hasError('required')">
+			  ce champ est requis
+			</ng-container>
+		</span>
+		</div>
+		
+		<div class="input-box">
+		<input type="password" name="password"  placeholder="mot de passe" [class.is-invalid]="isInvalidInput(formLoginComponent.controls['password'])" formControlName="password">
+			<i class="bx bxs-lock-alt"></i>
+			<span class="text-danger" *ngIf="isInvalidInput(formLoginComponent.controls['password'])">
+				<ng-container *ngIf="formLoginComponent.controls['password'].hasError('required')">
+				  ce champ est requis
+				</ng-container>
+			</span>
+		</div>
+		
+		<div class="remember-forgot">
+			<label><input type="checkbox">se souvenir de moi</label>
+			<a routerLink="dashboard">Rentrer dans la session</a>
+		</div>
+		
+		
+        <button type="submit" class="btn">Valider</button>
+		
+		
+		</form>
+	
+	
+	</div>
+</body>

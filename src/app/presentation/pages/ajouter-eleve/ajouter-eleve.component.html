@@ -1,0 +1,143 @@
+<!--Formulaire -->
+	
+<!-- <section class="grouper">
+    <app-welcome></app-welcome>
+    <div class="form-container">
+        <h1>Ajouter un élève</h1>
+        <p> <a routerLink="/eleve">Retour <i class="fas fa-arrow-circle-right"></i></a></p>
+
+        <form [formGroup]="formAjouterEleve">
+            <div class="form-group">
+                <label for="nom"> </label>
+                <input type="text" id="nom" placeholder="nom" name="nom" [class.is-invalid]="isInvalidInput(formAjouterEleve.controls['nom'])"  formControlName="nom">
+            </div>
+            <div class="form-group">
+                <label for="prenom"> </label>
+                <input type="text" id="prenom" placeholder="prenom" name="prenom" [class.is-invalid]="isInvalidInput(formAjouterEleve.controls['prenom'])"  formControlName="prenom">
+            </div>
+            <div class="form-group gender-group">
+                <label><input type="radio" name="sexe" value="homme"> Homme: </label>
+                <label><input type="radio" name="sexe" value="femme"> Femme: </label>
+            </div>
+            <div class="form-group">
+                <label for="matricule"> </label>
+                <input type="text" id="matricule" placeholder="matricule" name="matricule" [class.is-invalid]="isInvalidInput(formAjouterEleve.controls['matricule'])"  formControlName="matricule">
+            </div>
+            <div class="form-group">
+                <label for="date_naissance"> </label>
+                <input type="date" id="date_naissance"  name="date_naissance" [class.is-invalid]="isInvalidInput(formAjouterEleve.controls['date_naissance'])"  formControlName="date_naissance">
+            </div>
+            
+            <div class="form-group">
+                <label for="classe"></label>
+                <select id="classe" name="classe" [class.is-invalid]="isInvalidInput(formAjouterEleve.controls['classe'])"  formControlName="classe">
+                    <option value="">Sélectionner une classe</option>
+                    <option value="t1">Tle</option>
+                    <option value="1ere">1ère</option>
+                    <option value="2nd">2nd</option>
+                    <option value="3eme">3ème</option>
+                    <option value="4eme">4ème</option>
+                    <option value="5eme">5ème</option>
+                    <option value="6eme">6ème</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="telephone"> </label>
+                <input type="text" id="telephone" placeholder="telephone" name="telephone" [class.is-invalid]="isInvalidInput(formAjouterEleve.controls['telephone'])"  formControlName="telephone">
+            </div>
+            <div class="form-group">
+                <label for="ville">Ville: </label>
+                <input type="text" id="ville"  placeholder="ville" name="ville" [class.is-invalid]="isInvalidInput(formAjouterEleve.controls['ville'])"  formControlName="ville">
+            </div>
+            <div class="form-buttons">
+                <button type="button" class="cancel-button">Annuler</button>
+                <button type="submit" class="submit-button">Enregistrer</button>
+            </div>
+        </form>
+    </div>
+
+</section> -->
+
+
+    <div class="container">
+        <h1>Ajouter un élève</h1>
+        <p> <a routerLink="/eleve">Retour <i class="fas fa-arrow-circle-right"></i></a></p>
+
+        <form id="event-form" class="event-form" [formGroup]="formAjouterEleve">
+            <div class="form-group">
+                <label for="nom"> </label>
+                <input type="text" id="nom" placeholder="nom" name="first_name" [class.is-invalid]="isInvalidInput(formAjouterEleve.controls['first_name'])" formControlName="first_name">
+                <span class="text-danger" *ngIf="isInvalidInput(formAjouterEleve.controls['first_name'])">
+                    <ng-container *ngIf="formAjouterEleve.controls['first_name'].hasError('required')">
+                      ce champ est requis
+                    </ng-container>
+                </span>
+            </div>
+            <div class="form-group">
+                <label for="prenom"> </label>
+                <input type="text" id="prenom" placeholder="last_name" name="prenom" [class.is-invalid]="isInvalidInput(formAjouterEleve.controls['last_name'])"  formControlName="last_name">
+                <span class="text-danger" *ngIf="isInvalidInput(formAjouterEleve.controls['last_name'])">
+                    <ng-container *ngIf="formAjouterEleve.controls['last_name'].hasError('required')">
+                      ce champ est requis
+                    </ng-container>
+                </span>
+            </div>
+            <div class="form-group gender-group">
+                <label><input type="radio" name="sexe" value="homme" [class.is-invalid]="isInvalidInput(formAjouterEleve.controls['sex'])"  formControlName="sex"> Homme: </label>
+                <label><input type="radio" name="sexe" value="femme" [class.is-invalid]="isInvalidInput(formAjouterEleve.controls['sex'])"  formControlName="sex">  Femme: </label>
+                <span class="text-danger" *ngIf="isInvalidInput(formAjouterEleve.controls['sex'])">
+                    <ng-container *ngIf="formAjouterEleve.controls['sex'].hasError('required')">
+                      ce champ est requis
+                    </ng-container>
+                </span>
+            </div>
+            <div class="form-group">
+                <label for="registration"> </label>
+                <input type="text" id="registration" placeholder="registration" name="registration" [class.is-invalid]="isInvalidInput(formAjouterEleve.controls['registration'])"  formControlName="registration">
+                <span class="text-danger" *ngIf="isInvalidInput(formAjouterEleve.controls['registration'])">
+                    <ng-container *ngIf="formAjouterEleve.controls['registration'].hasError('required')">
+                      ce champ est requis
+                    </ng-container>
+                </span>
+            </div>
+            <div class="form-group">
+                <label for="date_naissance"> </label>
+                <input type="date" id="date_naissance"  name="date_naissance" [class.is-invalid]="isInvalidInput(formAjouterEleve.controls['date_birth'])"  formControlName="date_birth">
+            </div>
+            
+            <div class="form-group">
+                <label for="level"></label>
+                <input type="text" id="level"  name="level" placeholder="level" [class.is-invalid]="isInvalidInput(formAjouterEleve.controls['level'])" formControlName="level">
+
+                <span class="text-danger" *ngIf="isInvalidInput(formAjouterEleve.controls['level'])">
+                    <ng-container *ngIf="formAjouterEleve.controls['level'].hasError('required')">
+                      ce champ est requis
+                    </ng-container>
+                </span>
+            </div>
+            <div class="form-group">
+                <label for="phone"> </label>
+                <input type="text" id="phone" placeholder="phone" name="phone" [class.is-invalid]="isInvalidInput(formAjouterEleve.controls['phone'])"  formControlName="phone">
+                <span class="text-danger" *ngIf="isInvalidInput(formAjouterEleve.controls['phone'])">
+                    <ng-container *ngIf="formAjouterEleve.controls['phone'].hasError('required')">
+                      ce champ est requis
+                    </ng-container>
+                </span>
+            </div>
+            <div class="form-group">
+                <label for="city">Ville: </label>
+                <input type="text" id="ville"  placeholder="city" name="ville" [class.is-invalid]="isInvalidInput(formAjouterEleve.controls['city'])"  formControlName="city">
+                <span class="text-danger" *ngIf="isInvalidInput(formAjouterEleve.controls['city'])">
+                    <ng-container *ngIf="formAjouterEleve.controls['city'].hasError('required')">
+                      ce champ est requis
+                    </ng-container>
+                </span>
+            </div>
+            <div class="form-buttons">
+                <button type="button" class="cancel-button">Annuler</button>
+                <button type="submit" class="submit-button">Enregistrer</button>
+            </div>
+            
+  
+        </form>
+    </div>
